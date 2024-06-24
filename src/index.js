@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import SelectSearch from './components/selectSearch';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
+import Checkboxes from './components/fragosoComponent';
+import ContinuousSlider from './components/larissaComponent';
+
+
+const props = {
+    label: 'label default:',
+    id: 'select-search-default',
+    options: [
+        { label: 'Opção 1', id: 1 },
+        { label: 'Opção 2', id: 2 },
+        { label: 'Opção 3', id: 3 },
+    ]
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <SelectSearch {...props} />
+            <Checkboxes {...props} />
+            <ContinuousSlider {...props} />
+        </ThemeProvider>
+    </React.StrictMode>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
